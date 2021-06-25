@@ -57,19 +57,15 @@ class Game{
                        
                      if(index === player.index){
                          
-                         fill("black");
-                         textSize(25);
-                         text(allPlayers[plr].name ,x-25,y+25);
+                       //add code to display the player's name on the respective basket.
+                        
+                       text(allPlayers[plr].name,x-25,y-25);
 
                          
                      }
-                     textSize(25);
-                     fill("white");
-                     text("Player1 : " + allPlayers.player1.score,50,50);
-                     text("Player2 : "+allPlayers.player2.score,50,100 );
-                     
                     
-                     
+                      text ("Player 1 :" + allPlayers.player1.score,50,50)
+                      text ("Player 2 :" + allPlayers.player2.score,50,70);
                  
                  }
                 
@@ -106,19 +102,16 @@ class Game{
                  }
                  
                   if (player.index !== null) {
-                     //fill code here, to destroy the objects.
-                     for(var i=0 ;i<fruitGroup.length; i++){
+                    for (var i = 0; i < fruitGroup.length; i++) {
+                        if (fruitGroup.get(i).isTouching(players)) {
+                            fruitGroup.get(i).destroy();
+                         
+                            
+                        }
 
-                     if (fruitGroup.get(i).isTouching(players)){
-
-                        fruitGroup.get(i).destroy();
-                        player.score=player.score+1;
-                         player.update();
-
-                     }
-                     
-
-                     }
+                        player.score = player.score+1
+                        
+                    }
                   }
                 
 

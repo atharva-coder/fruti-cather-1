@@ -45,8 +45,12 @@ class Form{
         });
 
         this.reset.mousePressed(() => {
+            //add code to reset the values of the gameState and the playerCount nodes to 0 in the database
+            var playerInfoRef = database.ref('players')
+            playerInfoRef.remove();
             player.updateCount(0);
             game.update(0);
+            
         });
 
     }
